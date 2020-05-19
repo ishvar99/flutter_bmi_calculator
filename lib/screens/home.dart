@@ -27,31 +27,27 @@ Gender selectedGender=Gender.male;
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: GestureDetector(
-                    onTap: (){
-                      setState(() {
-                        selectedGender=Gender.male;
-                      });
-                    },
-                    child: myCard(
-                      cardChild: iconContent(icon:FontAwesomeIcons.male,iconLabel: 'Male',),
-                      color:selectedGender==Gender.male?activeCardColor:inactiveCardColor
-                    ),
+                  child: myCard(
+                      tapped:(){
+                        setState(() {
+                          selectedGender=Gender.male;
+                        });
+                      },
+                    cardChild: iconContent(icon:FontAwesomeIcons.male,iconLabel: 'Male',),
+                    color:selectedGender==Gender.male?activeCardColor:inactiveCardColor
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: (){
-                      setState(() {
-                        selectedGender=Gender.female;
-                      });
-                    },
                     child: myCard(
+                      tapped:(){
+                        setState(() {
+                        selectedGender=Gender.female;
+                        });
+                      },
                       cardChild: iconContent(icon:FontAwesomeIcons.female,iconLabel: 'Female',),
                       color: selectedGender==Gender.female?activeCardColor:inactiveCardColor,
                     ),
                   ),
-                )
               ],
             ),
           ),

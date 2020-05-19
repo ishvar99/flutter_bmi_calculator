@@ -5,15 +5,16 @@ import '../widgets/iconContent.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const activeCardColor = Color(0xFF1D1E33);
+const inactiveCardColor=Color(0xFF111328);
 const bottomContainerHeight = 80.0;
 const bottomContainerColor = Color(0xFFEB1555);
-
+enum Gender{male,female}
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
-
 class _HomeState extends State<Home> {
+Gender selectedGender=Gender.male;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,18 +29,27 @@ class _HomeState extends State<Home> {
                 Expanded(
                   child: GestureDetector(
                     onTap: (){
-
+                      setState(() {
+                        selectedGender=Gender.male;
+                      });
                     },
                     child: myCard(
                       cardChild: iconContent(icon:FontAwesomeIcons.male,iconLabel: 'Male',),
-                      color: activeCardColor,
+                      color:selectedGender==Gender.male?activeCardColor:inactiveCardColor
                     ),
                   ),
                 ),
                 Expanded(
-                  child: myCard(
-                    cardChild: iconContent(icon:FontAwesomeIcons.female,iconLabel: 'Female',),
-                    color: activeCardColor,
+                  child: GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        selectedGender=Gender.female;
+                      });
+                    },
+                    child: myCard(
+                      cardChild: iconContent(icon:FontAwesomeIcons.female,iconLabel: 'Female',),
+                      color: selectedGender==Gender.female?activeCardColor:inactiveCardColor,
+                    ),
                   ),
                 )
               ],

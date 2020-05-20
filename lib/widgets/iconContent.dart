@@ -16,10 +16,7 @@ class iconContent extends StatelessWidget {
         Text(
           iconLabel,
           textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 18,
-            color: Color(0xFF8D8E98),
-          ),
+          style: Theme.of(context).textTheme.display1,
         )
       ],
     );

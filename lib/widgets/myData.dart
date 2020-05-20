@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'myCard.dart';
+import 'package:provider/provider.dart';
+import '../providers/attributes.dart';
 import 'button.dart';
 class MyData extends StatelessWidget {
   final String label;
+
   MyData({this.label});
   @override
   Widget build(BuildContext context) {
+    final attributes=Provider.of<Attributes>(context);
     return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -15,16 +18,16 @@ class MyData extends StatelessWidget {
             style: Theme.of(context).textTheme.display1,
           ),
           Text(
-            "10",
+            label=='WEIGHT'?attributes.weight.toString():attributes.age.toString(),
             style: Theme.of(context).textTheme.display2,
           ),
           SizedBox(height: 10.0,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-                Button(icon:FontAwesomeIcons.plus,),
+                Button(icon:FontAwesomeIcons.plus,type:label),
                 SizedBox(width: 10.0,),
-                Button(icon: FontAwesomeIcons.minus,)
+                Button(icon: FontAwesomeIcons.minus,type:label)
             ],
           )
         ],

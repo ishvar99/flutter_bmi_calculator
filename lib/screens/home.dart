@@ -1,6 +1,4 @@
-import 'package:bmicalculator/widgets/button.dart';
-import 'package:bmicalculator/widgets/myData.dart';
-import 'package:flutter/cupertino.dart';
+import '../widgets/myData.dart';
 import 'package:flutter/material.dart';
 import '../widgets/myCard.dart';
 import '../widgets/iconContent.dart';
@@ -20,7 +18,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   Gender selectedGender = Gender.male;
   double sliderValue = 50.0;
-  int weight=10;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +65,6 @@ class _HomeState extends State<Home> {
             ),
           ),
           Expanded(
-
             child: myCard(
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -122,13 +118,15 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 Expanded(
                   child: myCard(
-                    cardChild: MyData(label: 'Weight'),
+                    cardChild: MyData(
+                      label: 'WEIGHT',
+                    ),
                     color: activeCardColor,
                   ),
                 ),
                 Expanded(
                   child: myCard(
-                    cardChild: MyData(label: 'Age',),
+                    cardChild: MyData(label: 'AGE'),
                     color: activeCardColor,
                   ),
                 )

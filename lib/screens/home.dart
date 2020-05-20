@@ -1,3 +1,5 @@
+import 'package:bmicalculator/widgets/button.dart';
+import 'package:bmicalculator/widgets/myData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/myCard.dart';
@@ -6,7 +8,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const activeCardColor = Color(0xFF1D1E33);
 const inactiveCardColor = Color(0xFF111328);
-const bottomContainerHeight = 80.0;
+const bottomContainerHeight = 70.0;
 const bottomContainerColor = Color(0xFFEB1555);
 enum Gender { male, female }
 
@@ -18,6 +20,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   Gender selectedGender = Gender.male;
   double sliderValue = 50.0;
+  int weight=10;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +42,7 @@ class _HomeState extends State<Home> {
                       },
                       cardChild: iconContent(
                         icon: FontAwesomeIcons.male,
-                        iconLabel: 'Male',
+                        iconLabel: 'MALE',
                       ),
                       color: selectedGender == Gender.male
                           ? activeCardColor
@@ -54,7 +57,7 @@ class _HomeState extends State<Home> {
                     },
                     cardChild: iconContent(
                       icon: FontAwesomeIcons.female,
-                      iconLabel: 'Female',
+                      iconLabel: 'FEMALE',
                     ),
                     color: selectedGender == Gender.female
                         ? activeCardColor
@@ -65,10 +68,10 @@ class _HomeState extends State<Home> {
             ),
           ),
           Expanded(
+
             child: myCard(
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
                     'HEIGHT',
@@ -88,19 +91,19 @@ class _HomeState extends State<Home> {
                   ),
                   SliderTheme(
                     data: SliderThemeData(
-                      thumbShape: RoundSliderThumbShape(
-                        enabledThumbRadius: 15.0,
-                      ),
-                      activeTrackColor:Colors.white,
-                      inactiveTrackColor: Color(0xFF8D8E98),
-                      overlayShape: RoundSliderOverlayShape(overlayRadius: 30.0,),
-                      thumbColor:Color(0xFFEB1555),
-                      overlayColor: Color(0x29EB1555)
-                    ),
+                        thumbShape: RoundSliderThumbShape(
+                          enabledThumbRadius: 15.0,
+                        ),
+                        activeTrackColor: Colors.white,
+                        inactiveTrackColor: Color(0xFF8D8E98),
+                        overlayShape: RoundSliderOverlayShape(
+                          overlayRadius: 30.0,
+                        ),
+                        thumbColor: Color(0xFFEB1555),
+                        overlayColor: Color(0x29EB1555)),
                     child: Slider(
                       min: 50.0,
                       max: 350.0,
-
                       value: sliderValue,
                       onChanged: (val) {
                         setState(() {
@@ -119,11 +122,13 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 Expanded(
                   child: myCard(
+                    cardChild: MyData(label: 'Weight'),
                     color: activeCardColor,
                   ),
                 ),
                 Expanded(
                   child: myCard(
+                    cardChild: MyData(label: 'Age',),
                     color: activeCardColor,
                   ),
                 )

@@ -3,11 +3,7 @@ import 'package:flutter/material.dart';
 import '../widgets/myCard.dart';
 import '../widgets/iconContent.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-const activeCardColor = Color(0xFF1D1E33);
-const inactiveCardColor = Color(0xFF111328);
-const bottomContainerHeight = 70.0;
-const bottomContainerColor = Color(0xFFEB1555);
+import '../constants.dart';
 enum Gender { male, female }
 
 class Home extends StatefulWidget {
@@ -42,8 +38,8 @@ class _HomeState extends State<Home> {
                         iconLabel: 'MALE',
                       ),
                       color: selectedGender == Gender.male
-                          ? activeCardColor
-                          : inactiveCardColor),
+                          ? kActiveCardColor
+                          : kInactiveCardColor),
                 ),
                 Expanded(
                   child: myCard(
@@ -57,8 +53,8 @@ class _HomeState extends State<Home> {
                       iconLabel: 'FEMALE',
                     ),
                     color: selectedGender == Gender.female
-                        ? activeCardColor
-                        : inactiveCardColor,
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                   ),
                 ),
               ],
@@ -110,7 +106,7 @@ class _HomeState extends State<Home> {
                   )
                 ],
               ),
-              color: activeCardColor,
+              color: kActiveCardColor,
             ),
           ),
           Expanded(
@@ -121,23 +117,23 @@ class _HomeState extends State<Home> {
                     cardChild: MyData(
                       label: 'WEIGHT',
                     ),
-                    color: activeCardColor,
+                    color: kActiveCardColor,
                   ),
                 ),
                 Expanded(
                   child: myCard(
                     cardChild: MyData(label: 'AGE'),
-                    color: activeCardColor,
+                    color: kActiveCardColor,
                   ),
                 )
               ],
             ),
           ),
           Container(
-            color: bottomContainerColor,
+            color: kBottomContainerColor,
             margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
           )
         ],
       ),

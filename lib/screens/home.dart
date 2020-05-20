@@ -86,17 +86,28 @@ class _HomeState extends State<Home> {
                       Text('cm', style: Theme.of(context).textTheme.display1),
                     ],
                   ),
-                  Slider(
-                    min: 50.0,
-                    max: 350.0,
-                    activeColor: Color(0xFFEB1555),
-                    inactiveColor: Color(0xFF8D8E98),
-                    value: sliderValue,
-                    onChanged: (val) {
-                      setState(() {
-                        sliderValue = val;
-                      });
-                    },
+                  SliderTheme(
+                    data: SliderThemeData(
+                      thumbShape: RoundSliderThumbShape(
+                        enabledThumbRadius: 15.0,
+                      ),
+                      activeTrackColor:Colors.white,
+                      inactiveTrackColor: Color(0xFF8D8E98),
+                      overlayShape: RoundSliderOverlayShape(overlayRadius: 30.0,),
+                      thumbColor:Color(0xFFEB1555),
+                      overlayColor: Color(0x29EB1555)
+                    ),
+                    child: Slider(
+                      min: 50.0,
+                      max: 350.0,
+
+                      value: sliderValue,
+                      onChanged: (val) {
+                        setState(() {
+                          sliderValue = val;
+                        });
+                      },
+                    ),
                   )
                 ],
               ),

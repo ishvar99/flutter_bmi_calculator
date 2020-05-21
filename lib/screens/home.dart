@@ -1,4 +1,4 @@
-import 'package:bmicalculator/calculator_brain.dart';
+import '../calculator_brain.dart';
 import 'package:provider/provider.dart';
 import '../providers/attributes.dart';
 import 'package:flutter/material.dart';

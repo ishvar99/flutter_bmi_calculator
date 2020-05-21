@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import '../providers/attributes.dart';
-import 'button.dart';
+import 'control_button.dart';
 class MyData extends StatelessWidget {
   final String label;
 
@@ -25,9 +25,9 @@ class MyData extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-                Button(icon:FontAwesomeIcons.plus,type:label),
+                ControlButton(icon:FontAwesomeIcons.plus,type:label),
                 SizedBox(width: 10.0,),
-                Button(icon: FontAwesomeIcons.minus,type:label)
+                ControlButton(icon: FontAwesomeIcons.minus,type:label)
             ],
           )
         ],

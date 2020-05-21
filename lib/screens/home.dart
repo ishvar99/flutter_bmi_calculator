@@ -1,9 +1,13 @@
+import 'package:bmicalculator/widgets/calculate_button.dart';
+
+import '../screens/result.dart';
 import '../widgets/myData.dart';
 import 'package:flutter/material.dart';
 import '../widgets/myCard.dart';
 import '../widgets/iconContent.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../constants.dart';
+
 enum Gender { male, female }
 
 class Home extends StatefulWidget {
@@ -129,12 +133,15 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          Container(
-            color: kBottomContainerColor,
-            margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: kBottomContainerHeight,
-          )
+          CalculateButton(
+            label: 'CALCULATE',
+            pressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Result(),
+              ),
+            ),
+          ),
         ],
       ),
     );

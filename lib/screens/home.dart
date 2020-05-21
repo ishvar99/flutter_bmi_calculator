@@ -1,3 +1,6 @@
+import 'package:bmicalculator/calculator_brain.dart';
+import 'package:provider/provider.dart';
+import '../providers/attributes.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../widgets/calculate_button.dart';
@@ -19,6 +22,7 @@ class _HomeState extends State<Home> {
   double sliderValue = 50.0;
   @override
   Widget build(BuildContext context) {
+    final attributes = Provider.of<Attributes>(context);
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text('BMI CALCULATOR')),
@@ -134,12 +138,20 @@ class _HomeState extends State<Home> {
           ),
           CalculateButton(
             label: 'CALCULATE',
-            pressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Result(),
-              ),
-            ),
+            pressed: () {
+              CalculatorBrain brain = CalculatorBrain(
+                  height: sliderValue.toInt(), weight: attributes.weight);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Result(
+                    bmi: brain.calculateBMI(),
+                    result: brain.getResult(),
+                    interpretation: brain.getInterpretation(),
+                  ),
+                ),
+              );
+            },
           ),
         ],
       ),

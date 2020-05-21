@@ -11,19 +11,17 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider<Attributes>.value(
       value: Attributes(),
       child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           theme: ThemeData.dark().copyWith(
               primaryColor: Color(0xFF0A0E21),
               scaffoldBackgroundColor: Color(0xFF0A0E21),
               textTheme: TextTheme(
-                display1: TextStyle(
-                  fontSize: 18,
-                  color: Color(0xFF8D8E98),
-                ),
-                display2: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.w900
-                )
-              )),
+                  display1: TextStyle(
+                    fontSize: 18,
+                    color: Color(0xFF8D8E98),
+                  ),
+                  display2:
+                      TextStyle(fontSize: 40, fontWeight: FontWeight.w900))),
           home: Home()),
     );
   }

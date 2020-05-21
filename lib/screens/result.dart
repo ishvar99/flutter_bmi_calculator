@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import '../screens/home.dart';
 import '../widgets/myCard.dart';
 import '../constants.dart';
@@ -51,11 +50,7 @@ class Result extends StatelessWidget {
                 color: kActiveCardColor),
           ),
           CalculateButton(
-              label: 'RE-CALCULATE',
-              pressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Home()));
-              }),
+              label: 'RE-CALCULATE', pressed: () => Navigator.pop(context)),
         ],
       ),
     );

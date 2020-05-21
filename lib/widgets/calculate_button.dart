@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../constants.dart';
-import '../screens/result.dart';
 
 class CalculateButton extends StatelessWidget {
   final String label;

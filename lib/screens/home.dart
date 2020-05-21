@@ -1,11 +1,10 @@
-import 'package:bmicalculator/widgets/calculate_button.dart';
-
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../widgets/calculate_button.dart';
 import '../screens/result.dart';
 import '../widgets/myData.dart';
-import 'package:flutter/material.dart';
 import '../widgets/myCard.dart';
 import '../widgets/iconContent.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../constants.dart';
 
 enum Gender { male, female }
